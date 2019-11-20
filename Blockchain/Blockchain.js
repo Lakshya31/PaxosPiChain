@@ -46,6 +46,9 @@ class BlockChain{
             new ValueTxn(null,sAddress, this.mReward)
         ]
     }
+    recieveNewBlock(block){
+        this.chain.push(block)
+    }
     getLatestBlock(){
         return this.chain[this.chain.length-1]
     }

@@ -41,7 +41,15 @@ quick_transaction = () => {
             const transaction = new ValueTxn(uuid(),value[0],value[1],value[2],new Date().getTime())
             quickChain.addTransaction(transaction)
             quickChain.minePendingTxns()
-            console.log(quickChain.getLatestBlock())
+            // console.log(quickChain.getLatestBlock())
+            mediumChain.recieveNewBlock(quickChain.getLatestBlock())
+            slowChain.recieveNewBlock(quickChain.getLatestBlock())
+            setTimeout(()=>{
+                console.log("\n Medium Chain : \n",mediumChain.getLatestBlock())
+            console.log("\n Quick Chain : \n",quickChain.getLatestBlock())
+            console.log("\n Slow Chain : \n",slowChain.getLatestBlock())
+            },200)
+            
         }
     }
     
@@ -63,7 +71,13 @@ medium_transaction = () => {
             const transaction = new ValueTxn(uuid(),value[0],value[1],value[2],new Date().getTime())
             mediumChain.addTransaction(transaction)
             mediumChain.minePendingTxns()
-            console.log(mediumChain.getLatestBlock())
+            quickChain.recieveNewBlock(mediumChain.getLatestBlock())
+            slowChain.recieveNewBlock(mediumChain.getLatestBlock())
+            setTimeout(()=>{
+                console.log("\n Medium Chain : \n",mediumChain.getLatestBlock())
+            console.log("\n Quick Chain : \n",quickChain.getLatestBlock())
+            console.log("\n Slow Chain : \n",slowChain.getLatestBlock())
+            },200)
         }
     }
     
@@ -82,8 +96,14 @@ slow_transaction = () => {
         const transaction = new ValueTxn(uuid(),value[0],value[1],value[2],new Date().getTime())
             slowChain.addTransaction(transaction)
             slowChain.minePendingTxns()
-            console.log(slowChain.getLatestBlock())
-    }
+            quickChain.recieveNewBlock(slowChain.getLatestBlock())
+            mediumChain.recieveNewBlock(slowChain.getLatestBlock())
+            setTimeout(()=>{
+                console.log("\n Medium Chain : \n",mediumChain.getLatestBlock())
+            console.log("\n Quick Chain : \n",quickChain.getLatestBlock())
+            console.log("\n Slow Chain : \n",slowChain.getLatestBlock())
+            },200)  
+        }
     
 }
 
