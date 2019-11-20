@@ -47,7 +47,7 @@ class BlockChain{
         ]
     }
     recieveNewBlock(block){
-        this.chain.push(block)
+        this.chain.push(block)  
     }
     getLatestBlock(){
         return this.chain[this.chain.length-1]
