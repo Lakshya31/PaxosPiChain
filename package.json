@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Lakshya31/PaxosPiChain/issues"
   },
-  "homepage": "https://github.com/Lakshya31/PaxosPiChain#readme"
+  "homepage": "https://github.com/Lakshya31/PaxosPiChain#readme",
+  "dependencies": {
+    "random": "^2.1.1"
+  }
 }
